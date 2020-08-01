@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Linux操作系统的基本使用 | 你辉哥的烂博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Linux操作系统个人操作系统：windows 、macos、linux 服务器操作系统：Unix、linux、windows server 操作系统的由来 Unix —&gt; Minix —&gt; Linux —&gt; AndroidUnix —&gt; BSD —&gt; FreeBSD —&gt; macOS —&gt; iOSUnix —&gt; Solaris &#x2F; Hp-UX &#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux操作系统的基本使用">
+<meta property="og:url" content="http://www.flyoung.icu/2020/08/01/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="你辉哥的烂博客">
+<meta property="og:description" content="Linux操作系统个人操作系统：windows 、macos、linux 服务器操作系统：Unix、linux、windows server 操作系统的由来 Unix —&gt; Minix —&gt; Linux —&gt; AndroidUnix —&gt; BSD —&gt; FreeBSD —&gt; macOS —&gt; iOSUnix —&gt; Solaris &#x2F; Hp-UX &#x2F;">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-08-01T06:22:54.552Z">
+<meta property="article:modified_time" content="2020-08-01T07:35:05.127Z">
+<meta property="article:author" content="辉哥哥">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="你辉哥的烂博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">你辉哥的烂博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">学习使人快乐</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.flyoung.icu"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Linux操作系统的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/01/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-08-01T06:22:54.552Z" itemprop="datePublished">2020-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux操作系统的基本使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux操作系统"><a href="#Linux操作系统" class="headerlink" title="Linux操作系统"></a><strong>Linux操作系统</strong></h1><p>个人操作系统：windows 、macos、linux</p>
+<p>服务器操作系统：Unix、linux、windows server</p>
+<p>操作系统的由来</p>
+<p>Unix —&gt; Minix —&gt; Linux —&gt; Android<br>Unix —&gt; BSD —&gt; FreeBSD —&gt; macOS —&gt; iOS<br>Unix —&gt; Solaris / Hp-UX / AIX</p>
+<p>Linus —&gt; Linux内核（kernel） —-&gt; Linux发行版本<br>    ~ Redhat / CentOS / Ubuntu / Debian / SUSE</p>
+<p>没有GUI（图形用户界面） —&gt; Shell（壳程序 - 人机接口）<br>    —&gt; Bash（Bourne Again Shell）</p>
+<p>用finashell 链接云服务器</p>
+<p>安全远程连接 —&gt; SSH —&gt; XShell / FinalShell / Termius</p>
+<p> SSH 22/tcp —&gt; FinalShell / Termius / Putty / XShell / MobaTerm （centos）</p>
+<h4 id="一、Linux系统操作"><a href="#一、Linux系统操作" class="headerlink" title="一、Linux系统操作"></a><strong>一、Linux系统操作</strong></h4><p>命令格式：命令 [参数] [操作的对象]</p>
+<p>调出帮助文档</p>
+<p>1、在命令后面加上 –help参数</p>
+<p>2、使用man命令获取帮助手册 （manual）</p>
+<p>  man mkdir</p>
+<p>3、三方工具：tldr</p>
+<pre><code>通过npm install tldr 下载，但是使用之前要检查是否安装了nodejs，使用 nodejs --version查看，如    果没安装，要安装后才能使用npm进行下载 </code></pre><p>查看历史命令：history</p>
+<p>清除历史命令：history -c</p>
+<p>执行历史命令：！历史命令编号</p>
+<h4 id="二、文件操作相关的命令"><a href="#二、文件操作相关的命令" class="headerlink" title="二、文件操作相关的命令"></a>二、文件操作相关的命令</h4><p>pwd （print working directory） 显示当前工作目录</p>
+<p>cd 切换目录（绝对路径/相对路径）</p>
+<p>ls 列出文件夹下的内容</p>
+<p>   -l（长格式查看）-a（查看所有点开头的隐藏文件和文件夹）-R递归式查看</p>
+<p>mkdir 创建文件夹 </p>
+<p>  -p 创建符文件夹（如果不存在）</p>
+<p>rmdir 删除空文件夹</p>
+<p>touch 创建空文件或者修改文件的最后访问时间</p>
+<p>rm  删除文件</p>
+<p>  -f （强制删除） -r （递归式删除）</p>
+<p>cat 查看文件的内容 -n（显示行号）</p>
+<p>head / tail —&gt; 查看文件的开头和结尾<br>    -行数<br>more / less —&gt; 逐页逐行查看文件内容<br>wc —&gt; word count —&gt; 统计行数、单词数、字节数<br>iconv —&gt; 转换文件编码<br>    ~ Unicode —&gt; 字符集（万国码）—&gt; 其中一种实现方式叫utf-8<br>    -f：原始编码<br>    -t：目标编码</p>
+<p>mv —&gt; move —&gt; 移动文件 —&gt; 剪切<br>cp —&gt; copy —&gt; 拷贝文件<br>    -r：（recursive）递归式拷贝（拷贝文件夹）</p>
+<p>file —&gt; 查看文件属性</p>
+<p>压缩文件：<br>gzip / gunzip<br>xz -z / xz -d</p>
+<p>WinRAR —&gt; 归档/解归档<br>WinZip —&gt; 压缩/解压缩</p>
+<p>归档：把多个文件合并到一个文件中<br>解归档：把一个文件拆成多个文件<br>tar -cf html.tar *.html —&gt; create<br>tar -xf html.tar —&gt; extract</p>
+<p>安全文件拷贝（通过网络跨主机拷贝文件）<br>scp root@一台服务器的IP地址:/路径/文件名 root@另一台服务器的IP地址:/路径/文件名</p>
+<p>常用快捷键：<br>Tab：自动补全命令或路径<br>Ctrl+u：删除整行<br>Ctrl+w：删除光标前面的单词<br>Ctrl+a：光标回到行首<br>Ctrl+e：光标去到行尾</p>
+<p>重定向：<br>    ~ 输出重定向：&gt;<br>        echo apple &gt; fruits.txt<br>    ~ 追加输入重定向：&gt;&gt;<br>        echo apple &gt;&gt; fruits.txt<br>        echo banana &gt;&gt; fruits.txt<br>    ~ 错误输出重定向：2&gt;<br>    ~ 输入重定向：&lt;</p>
+<p>管道：| 操作系统提供的进程间通信的I/O通道<br>    ~ 前一个命令（进程）的输出作为下一个命令（进程）的输入</p>
+<p>sort fruits.txt | uniq -c</p>
+<h5 id="Web服务器：Apache-Nginx"><a href="#Web服务器：Apache-Nginx" class="headerlink" title="Web服务器：Apache / Nginx"></a>Web服务器：Apache / Nginx</h5><p>​    ~ 启动Nginx服务（Web服务） —&gt; Web服务器<br>​        systemctl start nginx (CentOS 7.x)<br>​        service nginx start (CentOS 6.x)<br>​    ~ 停止Nginx服务<br>​        systemctl stop nginx<br>​    ~ 重启<br>​        systemctl restart nginx<br>​    ~ 查看运行状态<br>​        systemctl status nginx<br>​    ~ 设置/禁用开机自启<br>​        systemctl enable nginx<br>​        systemctl disable nginx</p>
+<p>查看网络状态 - netstat -ntlp<br>    -n：地址和端口的数值<br>    -t：tcp<br>    -l：listen - 正在监听<br>    -p：process - 显示进程信息</p>
+<h4 id="三、CentOS系统上如何安装软件和服务"><a href="#三、CentOS系统上如何安装软件和服务" class="headerlink" title="三、CentOS系统上如何安装软件和服务"></a>三、CentOS系统上如何安装软件和服务</h4><ol>
+<li><h6 id="使用包管理工具安装软件"><a href="#使用包管理工具安装软件" class="headerlink" title="使用包管理工具安装软件"></a>使用包管理工具安装软件</h6><p> ~ yum –&gt; Yellow dog Updater Modified</p>
+<pre><code>搜索：yum search nginx
+安装：yum install -y nginx
+卸载：yum erase -y nginx / yum remove -y nginx
+更新：yum update nginx / yum update
+查看信息：yum info nginx
+查看安装的所有软件包：yum list installed | grep nginx</code></pre><p>~ rpm0</p>
+</li>
+<li><h6 id="源代码构建安装-—-gt-configure-Makefile"><a href="#源代码构建安装-—-gt-configure-Makefile" class="headerlink" title="源代码构建安装 —&gt; configure / Makefile"></a>源代码构建安装 —&gt; configure / Makefile</h6><p> 例子1：源代码构建安装Git<br> ~ 下载源代码：<br> wget <a href="https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.27.0.tar.xz" target="_blank" rel="noopener">https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.27.0.tar.xz</a><br> ~ 解压缩和解归档<br> xz -d git-2.27.0.tar.xz —&gt; git-2.27.0.tar<br> tar -xf git-2.27.0.tar —&gt;  git-2.27.0（文件夹）<br> ~ 安装前的准备工作<br> cd git-2.27.0<br> yum install -y libcurl libcurl-devel zlib zlib-devel<br> yum install -y gcc<br> ./configure –prefix=/usr/local<br> ~ 编译源代码生成可执行程序<br> make &amp;&amp; make install<br> ~ 通过下面的命令检查是否安装成功<br> git –version<br>whereis git</p>
+<p> 例子2：源代码构建安装Python 3<br> ~ 补充安装Python 3需要用到的依赖项<br> yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libdb4-devel libpcap-devel xz-devel libffi-devel<br> ~ 下载和检查Python3的源代码<br> wget <a href="https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tar.xz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tar.xz</a><br> md5sum Python-3.7.8.tar.xz<br> ~ 解压缩和解归档<br> xz -d Python-3.7.8.tar.xz<br> tar -xf Python-3.7.8.tar<br> ~ 安装前的准备工作<br> cd Python-3.7.8<br> ./configure –prefix=/usr/local/python37 –enable-optimizations<br> ~ 构建和安装<br> make &amp;&amp; make install<br> ~ 配置PATH环境变量<br> vim /etc/bashrc —&gt; 系统环境变量<br> vim ~/.bash_profile —&gt; 用户环境变量<br> —&gt; Go<br> export PATH=$PATH:/usr/local/python37/bin<br> —&gt; Esc ZZ<br> ~ 检查是否安装成功<br> 退出登录，重新登录，激活PATH环境变量<br> python3 –version<br>pip3 –version</p>
+<p> 3、直接下载可执行二进制程序</p>
+</li>
+</ol>
+<p>MD5 —&gt; 哈希函数/哈希算法 —&gt; 给对象生成签名（指纹）</p>
+<h4 id="四、Vim的使用"><a href="#四、Vim的使用" class="headerlink" title="四、Vim的使用"></a>四、Vim的使用</h4><p>工作模式：<br>    ~ 命令模式<br>        移动光标：<br>            ~ G：最后一行<br>            ~ gg：第一行<br>            ~ 数字G：指定行<br>            ~ 左下上右：h j k l<br>            ~ 0：行首<br>            ~ $：行尾<br>            ~ w：下一个单词<br>            ~ 下一页/上一页：Ctrl+f / Ctrl+b<br>            ~ 下一行/上一行：Ctrl+e / Ctrl+y<br>        编辑内容：<br>            ~ 删除行：dd / 100dd<br>            ~ 删除到行首/行尾：d0 / d$<br>            ~ 删除一个单词：dw<br>            ~ 拷贝行：yy / 10yy<br>            ~ 粘贴：p<br>            ~ 撤销：u<br>            ~ 恢复：Ctrl+r<br>        保存退出<br>            ~ ZZ<br>        进入编辑模式：<br>            i / I / a / A / o / O<br>        进入末行模式：<br>            : / ?<br>    ~ 编辑模式（插入模式）<br>        回到命令模式：Esc<br>    ~ 末行模式（底线命令模式）<br>        set nu / set nonu<br>        set ts=4<br>        set autoindent / set noautoindent<br>        set expandtab<br>        set ruler / set noruler<br>        set hls / set nohls<br>        w / q / wq / q! / qa</p>
+<p>vim多窗口操作<br>:sp —&gt; 水平拆分窗口<br>:vs —&gt; 垂直拆分窗口<br>:ls —&gt; 查看所有文件<br>:b 编号 —&gt; 切换文件<br>double Ctrl+w —&gt; 切换光标到下一个窗口<br>:qa —&gt; 退出所有窗口</p>
+<p>把Python程序改成可执行脚本</p>
+<p>#!/usr/local/python37/bin/python3</p>
+<p>chmod u+x,g+x,o+x 文件名 —&gt; 添加执行权限<br>chmod 755 文件名 —&gt; 添加执行权限</p>
+<p>设置PATH环境变量<br>export PATH=$PATH:/root/code</p>
+<p>创建符号链接（软链接） —&gt; 快捷方式<br>ln -s /usr/local/python37/bin/python3 /usr/bin/python3</p>
+<p>#!/usr/bin/python3</p>
+<p>别名和取消别名</p>
+<p>alias ‘lla=ls -la’<br>alias ‘rmf=rm -f’</p>
+<p>unalias lla<br>unalias rmf</p>
+<p>用户管理<br>    ~ 创建用户<br>    useradd hellokitty</p>
+<p>   ~ 修改密码<br>    passwd hellokitty</p>
+<p>  ~删除用户</p>
+<p>  userdel -r helloki</p>
+<p>~ 设置密码过期<br>    chage -M 30 hellokitty —&gt; 30天后密码过期<br>    chage -d 0 hellokitty  —&gt; 下次登录修改密码</p>
+<pre><code>~ 改变文件所有者
+chown hellokitty filename
+chown -R hellokitty dirname
+
+~ 切换用户
+su - switch user
+
+~ 以超级管理员的身份执行命令
+sudo - super user do
+前提条件：当前用户必须在sudoers清单中
+可以使用visudo编辑sudoers清单添加指定的用户
+
+~ 其他命令：mesg write wall</code></pre><h4 id="五、使用linux安装MySQL"><a href="#五、使用linux安装MySQL" class="headerlink" title="五、使用linux安装MySQL"></a><strong>五、使用linux安装MySQL</strong></h4><p>MariaDB —&gt; MySQL的开源免费分支<br>yum install -y mariadb mariadb-server</p>
+<p>安装MySQL：<br>    ~ 删除和mariadb相关的包<br>    yum list installed | grep mariadb | awk ‘{print $1}’ | xargs yum erase -y </p>
+<pre><code>~ 安装common包
+rpm -ivh mysql-community-common-5.7.31-1.el7.x86_64.rpm
+
+~ 安装libs和libs-compat包
+rpm -ivh mysql-community-libs-5.7.31-1.el7.x86_64.rpm
+rpm -ivh mysql-community-libs-compat-5.7.31-1.el7.x86_64.rpm
+
+~ 安装devel包（给开发者使用的）
+rpm -ivh mysql-community-devel-5.7.31-1.el7.x86_64.rpm
+
+~ 安装client包（客户端工具）
+rpm -ivh mysql-community-client-5.7.31-1.el7.x86_64.rpm
+
+~ 安装server包（MySQL服务器程序）
+yum install -y libaio numactl-libs
+rpm -ivh mysql-community-server-5.7.31-1.el7.x86_64.rpm
+
+MySQL的数据文件 /var/lib/mysql
+MySQL的日志文件 /var/log/mysqld.log</code></pre><p>安装软件：rpm -ivh<br>移除软件：rpm -e<br>查询软件：rpm -qa</p>
+<p>启动MySQL<br>    systemctl start mysqld</p>
+<p>停止MySQL<br>    systemctl stop mysqld</p>
+<p>重启MySQL<br>    systemctl restart mysqld</p>
+<p>查看MySQL状态<br>    systemctl status mysqld</p>
+<p>连接MySQL数据库<br>    mysql -u root -p</p>
+<p>修改数据库密码<br>    sql&gt; alter user ‘root’@’localhost’ identified by ‘Luohao.618’;</p>
+<p>如果暂时需要使用弱口令密码，可以做下面的设置PATH环境变量<br>    sql&gt; set global validate_password_policy=0;<br>    sql&gt; set global validate_password_length=6;</p>
+<p>安装、配置和启动MySQL：<br>    - rpm包管理工具安装<br>        - vim /etc/my.cnf —&gt; MySQL配置文件<br>        - systemctl start mysqld<br>        - systemctl stop mysqld<br>        - systemctl restart mysqld<br>        - systemctl status mysqld<br>        - netstat -ntlp</p>
+<h4 id="六、Git的使用"><a href="#六、Git的使用" class="headerlink" title="六、Git的使用"></a><strong>六、Git的使用</strong></h4><ol>
+<li><p>创建本地仓库<br> git init</p>
+</li>
+<li><p>把工作区的文件放到暂存区<br> git add filename<br> git add .</p>
+</li>
+<li><p>把缓存区的文件提交到本地仓库<br> 第一次提交代码需要设置用户名和邮箱<br> git config –global user.name “abc”<br> git config –global user.email “<a href="mailto:abc@126.com">abc@126.com</a>“</p>
+<p> git commit -m ‘…’</p>
+</li>
+<li><p>查看提交日志（历史）<br> git log<br> git reflog</p>
+</li>
+<li><p>用暂存区的内容恢复工作区<br> git restore filename</p>
+</li>
+<li><p>版本回退<br> git reset –hard ID</p>
+</li>
+<li><p>添加远端仓库<br> git remote add origin URL<br> git remote remove origin<br> git remote -v</p>
+</li>
+<li><p>同步代码<br> ~ 上推（把自己的工作成功同步到服务器）<br> git push -u origin master<br> git push<br> ~ 下拉<br> git pull</p>
+</li>
+<li><p>查看冲突<br> git diff</p>
+</li>
+<li><p>配置免密访问<br>ssh-keygen -t rsa -b 2048 -C “<a href="mailto:abc@126.com">abc@126.com</a>“<br>—&gt; ~/.ssh/ —&gt; id_rsa / id_rsa.pub</p>
+<p>cat id_rsa.pub —&gt; 把公钥部署到服务器上</p>
+<p>git remote remove origin<br>git remote add origin SSH地址<br>git remote -v</p>
+<p>git push -u origin master<br>数据库 - 数据的仓库（集散地）—&gt; 数据持久化<br>~ 存储数据<br>~ 管理数据 —&gt; 可以方便的检索我们需要的数据</p>
+</li>
+</ol>
+<h4 id="七、Redis的安装"><a href="#七、Redis的安装" class="headerlink" title="七、Redis的安装"></a><strong>七、Redis的安装</strong></h4><p>修改Redis配置文件<br>cp redis-5.0.8/redis.conf ~/  —&gt; 拷贝配置文件到用户主目录</p>
+<p>vim redis.conf  –&gt; 修改配置文件<br>        ~bind 本机私有ip地址（网卡上的ip地址） ：？ifconfig rth0（查看本机ip地址）<br>        ~protected-mode yes<br>        ~port 端口号 （ 避开著名端口）<br>        ~requirepass 访问Redis服务器的口令</p>
+<p>redis-server redis.conf &gt; redis.log 2&gt; redis-error.log &amp; （启动Redis服务器）</p>
+<p>netstat -ntlp （查看所有服务器运行状态和端口）</p>
+<p>redis-cli -h ip地址 -p 端口 （启动Redis交互环境）</p>
+<p>jobs 可以看后台工作</p>
+<p>auth 访问口令</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.flyoung.icu/2020/08/01/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdbejgvh0001ccr1hgwd0898" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/01/Redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Redis的基本使用
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/08/01/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">MySQL数据库的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/01/Redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Redis的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/01/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Linux操作系统的基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 辉哥哥<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

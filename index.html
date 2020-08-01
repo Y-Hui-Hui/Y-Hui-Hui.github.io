@@ -68,10 +68,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-MySQL数据库的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/07/24/hello-world/" class="article-date">
-  <time datetime="2020-07-24T11:45:11.364Z" itemprop="datePublished">2020-07-24</time>
+    <a href="/2020/08/01/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-08-01T07:35:20.711Z" itemprop="datePublished">2020-08-01</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/24/hello-world/">Hello World</a>
+      <a class="article-title" href="/2020/08/01/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">MySQL数据库的基本使用</a>
     </h1>
   
 
@@ -90,24 +90,380 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h1 id="MySQL数据库的基本使用"><a href="#MySQL数据库的基本使用" class="headerlink" title="MySQL数据库的基本使用"></a>MySQL数据库的基本使用</h1><h3 id="一：关于数据库的一些知识"><a href="#一：关于数据库的一些知识" class="headerlink" title="一：关于数据库的一些知识"></a><strong>一：关于数据库的一些知识</strong></h3><p>1：数据库的好处：<br>（1）可以持久化数据到本地<br>（2）结构化查询</p>
+<p>2：数据库的概念：<br>（1）DB:数据库，存储数据的容器<br>（2）DBMS:数据库管理系统，又称为数据库或数据库产品，用于创建或管理DBMS<br>（3）SQL:结构化查询语言，用于和互数据库的通信，不是某个数据库的语言，而是几乎所有的主流数据库软件通用的软件。</p>
+<p>3：数据库存储数据的特点：<br>（1）数据存放到表中，然后存放在库中<br>（2）一个库可以有多张表，每张表具有唯一的表名来标识自己<br>（3）表中有一个或多个列，列又称为字段，相当于java中的属性<br>（4）表中的每一行数据，相当于java中的对象</p>
+<p>4.常见的数据库关键软件<br><code>mysql,db2,sqlserver,oracle</code></p>
+<h3 id="二：mysql的一些基础sql语法"><a href="#二：mysql的一些基础sql语法" class="headerlink" title="二：mysql的一些基础sql语法"></a><strong>二：mysql的一些基础sql语法</strong></h3><h6 id="1、命令行操作"><a href="#1、命令行操作" class="headerlink" title="1、命令行操作"></a>1、命令行操作</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.链接mysql: mysql -uroot -p123456 ;  注释: -u后跟是用户名, -p密码</span><br><span class="line">2. 创建数据库: create  database  库名字;</span><br><span class="line">3. 查询所有数据库: show databases;</span><br><span class="line">4. 进入某个数据库: use  库名字;</span><br><span class="line">5. 查看某个数据库中的表: show tables;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h6 id="2、创建数据表"><a href="#2、创建数据表" class="headerlink" title="2、创建数据表"></a>2、创建数据表</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> 1创建数据库</span><br><span class="line">  create  database  库名字;</span><br><span class="line">2.创建数据表</span><br><span class="line">create table if not exists stu(id int not null primary  key  auto_increment , name varchar(20), age int )</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h6 id="3、数据表插入数据"><a href="#3、数据表插入数据" class="headerlink" title="3、数据表插入数据"></a>3、数据表插入数据</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.第一中插入方式</span><br><span class="line">insert into stu values(&#39;zhangsan&#39;, 20)</span><br><span class="line">2.第二种插入方式</span><br><span class="line">insert into stu (name, age) values(&#39;zhangsan&#39;, 20)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h6 id="4、数据表数据更新"><a href="#4、数据表数据更新" class="headerlink" title="4、数据表数据更新"></a>4、数据表数据更新</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.修改某一条数据</span><br><span class="line">update stu set age&#x3D;30 where  name&#x3D;&#39;zhangsan&#39;;</span><br><span class="line">2.修改全部数据</span><br><span class="line">update stu set age&#x3D;10;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h6 id="5、数据删除操作"><a href="#5、数据删除操作" class="headerlink" title="5、数据删除操作"></a>5、数据删除操作</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.删除数据表中的一条数据</span><br><span class="line">	delete from stu where name&#x3D;&#39;xxy&#39;;</span><br><span class="line">2. 删除数据表中所有数据</span><br><span class="line">	delete from stu;</span><br><span class="line">3.删除数据表</span><br><span class="line">	drop table 数据表名</span><br><span class="line">4.删除数据库</span><br><span class="line">	drop database 数据库名</span><br><span class="line">5.清空数据表的数据</span><br><span class="line">	truncate table stu;</span><br></pre></td></tr></table></figure>
+
+<h6 id="6、alter-相关操作"><a href="#6、alter-相关操作" class="headerlink" title="6、alter 相关操作"></a>6、alter 相关操作</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1.修改数据表名</span><br><span class="line">	alter table stu rename student</span><br><span class="line">2.添加一列</span><br><span class="line">	aletr table stu add phone int;(字段和数据类型)</span><br><span class="line">3. 数据表中添加多个列</span><br><span class="line">	alter table stu add email varchar(20), class varchar(30);</span><br><span class="line">4.指定在某列后面或前面添加一列</span><br><span class="line">	alter table stu add  habbit varchar(20) first&#x2F;after age;</span><br><span class="line">5.删除数据表中某列</span><br><span class="line"> 	alter table stu drop phone;(phone: 列名字)</span><br><span class="line"> 6.删除数据表的主键</span><br><span class="line"> 	alter table stu drop primary key</span><br><span class="line"> 7.修改某一列为主键</span><br><span class="line"> 	alter table stu add primary key(name);</span><br><span class="line"> 8.修改某个字段的数据类型</span><br><span class="line"> 	alter table stu modify age varchar(20);</span><br><span class="line"> 9. 设置某个字段为唯一</span><br><span class="line"> 	alter table stu add unique(name);</span><br><span class="line">  10: 设置某个字段为自增的主键</span><br><span class="line">  	alter table stu modify id int not null primary key auto_increment;</span><br></pre></td></tr></table></figure>
+
+<h6 id="7、数据表查询"><a href="#7、数据表查询" class="headerlink" title="7、数据表查询"></a>7、数据表查询</h6><ol start="4">
+<li><pre><code>  1.查询所有数据
+ select * from stu;
+ 2.根据某个条件查询数据
+ select  * from stu where name=&apos;zhangsan&apos;
+
+ 3. 去重查询的数据
+    select distinct name from stu;
+    4.条件查询区间查询
+    select * from stu where age &gt;20 and age&lt;50;
+    select * from stu  where age between 20 and 50;
+    5.数据查询排序: order by 默认是asc: 升 序, desc: 降序
+          select * from stu order by age desc;
+    6.模糊查询:%是占位符
+     select * from stu where name like &apos;%三%&apos;;
+    7.子查询: 执行顺序是先获取age的数据, 然后在根据age所在区间进行查询
+    select * from stu where age in (select age from stu where age &gt;20 and age &lt;30);
+    8.多表查询
+     select stu_name, avg(degree) from student , score where student.stu_num=score.stu_num group by student.stu_name;
+    9.联表查询, join / left join /right join
+    select stu_name, avg(degree) from student join score on     student.stu_num = score.stu_num;
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">5. group by order by 同时运用时, group by 是在order by 前面</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 四、筛选条件的分类</span><br></pre></td></tr></table></figure>
+1：按条件表达式筛选
+条件运算符 &gt; ， &lt; ， = ， &gt;= ， &lt;= (记住判断是否相等在mysql中是一个等于号）
+不等于： !=或者&lt; &gt;
+</code></pre></li>
+</ol>
+<p>2：逻辑运算符<br>&amp;&amp; || ! （与或非）<br>and or not (mysql中推荐用法）</p>
+<p>3：模糊查询<br>like<br>bewteen and<br>in<br>is null</p>
+<pre><code></code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.flyoung.icu/2020/08/01/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdbejgtm0000ccr1ahsk6rh9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Redis的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/01/Redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-08-01T06:36:02.451Z" itemprop="datePublished">2020-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/01/Redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Redis的基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><p>Redis是用C语言开发的一个单线程、高性能键值对（key-value）非关系型数据库，官方提供测试数据，50个并发执行100000个请求,读的速度是110000次/s,写的速度是81000次/s ，且Redis通过提供多种键值数据类型来适应不同场景下的存储需求，目前为止Redis支持的键值数据类型有Sring、hash、list、set和sortedset</p>
+<h2 id="二、命令操作"><a href="#二、命令操作" class="headerlink" title="二、命令操作"></a>二、命令操作</h2><p>redis存储的是：key,value格式的数据，其中 key 都是 字符串，value有5种不同的数据结构</p>
+<ol>
+<li>字符串类型 string</li>
+<li>哈希类型 hash ： map格式</li>
+<li>列表类型 list ： linkedlist格式。支持重复元素</li>
+<li>集合类型 set ： 不允许重复元素</li>
+<li>有序集合类型 sortedset：不允许重复元素，且元素有顺序</li>
+</ol>
+<h3 id="1-String类型"><a href="#1-String类型" class="headerlink" title="1)String类型"></a>1)String类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.存储String : set key value</span><br><span class="line">&gt; set name libai</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">2.获取String : get key</span><br><span class="line">&gt; get name</span><br><span class="line">&quot;libai&quot;</span><br><span class="line"></span><br><span class="line">3.删除String : del key</span><br><span class="line">&gt; del name</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-hash类型"><a href="#2-hash类型" class="headerlink" title="2)hash类型"></a>2)hash类型</h3><ol>
+<li>存储： <code>hset key field fieldValue</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; hset human name libai</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; hset human password 111</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>获取某个hash指定字段：<code>hget key field</code> </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; hget human name</span><br><span class="line">&quot;libai&quot;</span><br><span class="line">&gt; hget human password</span><br><span class="line">&quot;111&quot;</span><br></pre></td></tr></table></figure>
+
+<p> 3.获取hash中所有字段和值：<code>hgetall key</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; hegetall human</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;libai&quot;</span><br><span class="line">3) &quot;password&quot;</span><br><span class="line">4) &quot;111&quot;</span><br></pre></td></tr></table></figure>
+
+<p> 4.删除hash中某个字段：<code>hdel key field</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; hdel human name</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-列表类型list"><a href="#3-列表类型list" class="headerlink" title="3)列表类型list"></a>3)列表类型list</h3><p>可以添加一个元素到列表的头部（左边）或者尾部（右边）</p>
+<ol>
+<li>存储：<ol>
+<li><code>lpush listname value</code>：将元素加入列表头部</li>
+<li><code>rpush listname value</code>：将元素加入列表尾部</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 创建list1列表然后添加3个元素</span><br><span class="line">&gt; lpush list1 a b c</span><br><span class="line">&gt; lpush list1 d</span><br><span class="line">&gt; lpush list1 e</span><br></pre></td></tr></table></figure>
+
+<p>2.获取：</p>
+<ol>
+<li><p><code>lrange listname start end</code> ：范围获取</p>
+</li>
+<li><p>0 -1 :是获取所有元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; lrange list1 0 -1</span><br><span class="line">1) &quot;d&quot;</span><br><span class="line">2) &quot;c&quot;</span><br><span class="line">3) &quot;b&quot;</span><br><span class="line">4) &quot;a&quot;</span><br><span class="line">5) &quot;e&quot;</span><br></pre></td></tr></table></figure>
+
+<p>3.删除元素</p>
+<ol>
+<li><code>lpop listname</code>： 删除列表最左边的元素，并将元素返回</li>
+<li><code>rpop listname</code>： 删除列表最右边的元素，并将元素返回</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; lpop list1</span><br><span class="line">&quot;d&quot;</span><br><span class="line">&gt; rpop list1</span><br><span class="line">&quot;e&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-集合类型-set"><a href="#4-集合类型-set" class="headerlink" title="4)集合类型 set"></a>4)集合类型 set</h3><p>set不允许重复元素，是无序的</p>
+<ol>
+<li>存储：<code>sadd setname value</code></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 存储：sadd setname value</span><br><span class="line">&gt; sadd set1 aa</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; sadd set1 bb</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; sadd set1 bb</span><br><span class="line">(integer) 0 <span class="comment"># 添加失败</span></span><br><span class="line">1234567</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>获取：<code>smembers setname</code>:获取set集合中所有元素</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2. 获取：smembers setname:获取<span class="keyword">set</span>集合中所有元素</span><br><span class="line">&gt; smembers set1</span><br><span class="line"><span class="number">1</span>) <span class="string">"bb"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"aa"</span></span><br><span class="line"><span class="number">1234</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>删除：<code>srem setname value</code>:删除set集合中的某个元素</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3. 删除：srem setname value:删除<span class="keyword">set</span>集合中的某个元素	</span><br><span class="line">&gt; srem set1 aa</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line">&gt; smembers set1</span><br><span class="line"><span class="number">1</span>) <span class="string">"bb"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-有序集合类型-sortedset"><a href="#5-有序集合类型-sortedset" class="headerlink" title="5)有序集合类型 sortedset"></a>5)有序集合类型 sortedset</h3><p>sortedset 不允许重复元素，且元素有顺序.每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。</p>
+<ol>
+<li>存储：<code>zadd setname score value</code></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 存储：zadd setname score value   <span class="comment">-- 依据score的大小对value进行排序</span></span><br><span class="line"></span><br><span class="line">&gt; zadd myss 10 libai</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd myss 20 lisi</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd myss 3 wuli</span><br><span class="line">(integer) 1</span><br><span class="line">12345678</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>获取：<code>zrange key start end [withscores]</code></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">2. 获取：zrange key <span class="keyword">start</span> <span class="keyword">end</span> [withscores]</span><br><span class="line">	<span class="number">0</span> <span class="number">-1</span>:获取所有</span><br><span class="line">&gt; zrange myss <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"wuli"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"libai"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"lisi"</span></span><br><span class="line"><span class="number">123456</span></span><br><span class="line"><span class="number">2.1</span> 获取：同时把分数也获取出来</span><br><span class="line">&gt; zrange myss <span class="number">0</span> <span class="number">-1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"wuli"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"3"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"libai"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"10"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"lisi"</span></span><br><span class="line"><span class="number">6</span>) <span class="string">"20"</span></span><br><span class="line"><span class="number">12345678</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>删除：<code>zrem setname value</code></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">3. 删除：zrem setname value</span><br><span class="line">redis&gt; zrem myss lisi</span><br><span class="line">(integer) 1</span><br><span class="line">redis&gt; zrange myss 0 -1 withscores</span><br><span class="line">1) "wuli"</span><br><span class="line">2) "3"</span><br><span class="line">3) "libai"</span><br><span class="line">4) "10"</span><br><span class="line">12345678</span><br></pre></td></tr></table></figure>
+
+<h3 id="6）地理位置"><a href="#6）地理位置" class="headerlink" title="6）地理位置"></a>6）地理位置</h3><p>1、geoadd  添加坐标和地名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geoadd key 经度 纬度 member ……</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; GEOADD Sicily 13.361389 38.115556 &quot;Palermo&quot; 15.087269 37.502669 &quot;Catania&quot;</span><br><span class="line">(integer) 2</span><br><span class="line"> </span><br><span class="line">redis&gt; GEODIST Sicily Palermo Catania</span><br><span class="line">&quot;166274.15156960039&quot;</span><br><span class="line"> </span><br><span class="line">redis&gt; GEORADIUS Sicily 15 37 100 km</span><br><span class="line">1) &quot;Catania&quot;</span><br><span class="line"> </span><br><span class="line">redis&gt; GEORADIUS Sicily 15 37 200 km</span><br><span class="line">1) &quot;Palermo&quot;</span><br><span class="line">2) &quot;Catania&quot;</span><br></pre></td></tr></table></figure>
+
+<p>2、geopos 可以获取地理位置的坐标，可以批量获取多个地理位置的坐标，命令格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GEOPOS key member [member ...]</span><br></pre></td></tr></table></figure>
+
+<p>3、geodist用来获取两个地理位置的距离，命令格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GEODIST key member1 member2 [m|km|ft|mi]</span><br></pre></td></tr></table></figure>
+
+<p>单位可以指定为以下四种类型：</p>
+<ul>
+<li>m：米，距离单位默认为米，不传递该参数则单位为米。</li>
+<li>km：公里。</li>
+<li>mi：英里。</li>
+<li>ft：英尺。</li>
+</ul>
+<h3 id="通用命令："><a href="#通用命令：" class="headerlink" title="通用命令："></a>通用命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">set 键 值</span><br><span class="line">get 键 </span><br><span class="line">	返回值</span><br><span class="line">	</span><br><span class="line">set 键 值 ex 30 (缓存时间）</span><br><span class="line">expire 键 300  设置缓存时间</span><br><span class="line">expire 键 600 （键相同可以重设缓存时间）</span><br><span class="line"></span><br><span class="line">ttl 键 查看键值还剩多少时间</span><br><span class="line"></span><br><span class="line">keys * 查看所有的键</span><br><span class="line">keys u* 只看u开头的键</span><br><span class="line">dbsize 查看有多少键</span><br><span class="line"></span><br><span class="line">del 键 删除单个键</span><br><span class="line">flushdb （清空当前数据库的所有数据）</span><br><span class="line">flushall（清空所有的数据库的数据）</span><br><span class="line"></span><br><span class="line">save （数据长久保存）</span><br><span class="line">bgsave（后台保存数据）</span><br><span class="line">exists 键（判断键是否存在）</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.flyoung.icu/2020/07/24/hello-world/" data-id="ckd07gh7o0000asr1h235b895" class="article-share-link">Share</a>
+      <a data-url="http://www.flyoung.icu/2020/08/01/Redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdbejgvi0002ccr14j6280ch" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux操作系统的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/01/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-08-01T06:22:54.552Z" itemprop="datePublished">2020-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/01/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Linux操作系统的基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux操作系统"><a href="#Linux操作系统" class="headerlink" title="Linux操作系统"></a><strong>Linux操作系统</strong></h1><p>个人操作系统：windows 、macos、linux</p>
+<p>服务器操作系统：Unix、linux、windows server</p>
+<p>操作系统的由来</p>
+<p>Unix —&gt; Minix —&gt; Linux —&gt; Android<br>Unix —&gt; BSD —&gt; FreeBSD —&gt; macOS —&gt; iOS<br>Unix —&gt; Solaris / Hp-UX / AIX</p>
+<p>Linus —&gt; Linux内核（kernel） —-&gt; Linux发行版本<br>    ~ Redhat / CentOS / Ubuntu / Debian / SUSE</p>
+<p>没有GUI（图形用户界面） —&gt; Shell（壳程序 - 人机接口）<br>    —&gt; Bash（Bourne Again Shell）</p>
+<p>用finashell 链接云服务器</p>
+<p>安全远程连接 —&gt; SSH —&gt; XShell / FinalShell / Termius</p>
+<p> SSH 22/tcp —&gt; FinalShell / Termius / Putty / XShell / MobaTerm （centos）</p>
+<h4 id="一、Linux系统操作"><a href="#一、Linux系统操作" class="headerlink" title="一、Linux系统操作"></a><strong>一、Linux系统操作</strong></h4><p>命令格式：命令 [参数] [操作的对象]</p>
+<p>调出帮助文档</p>
+<p>1、在命令后面加上 –help参数</p>
+<p>2、使用man命令获取帮助手册 （manual）</p>
+<p>  man mkdir</p>
+<p>3、三方工具：tldr</p>
+<pre><code>通过npm install tldr 下载，但是使用之前要检查是否安装了nodejs，使用 nodejs --version查看，如    果没安装，要安装后才能使用npm进行下载 </code></pre><p>查看历史命令：history</p>
+<p>清除历史命令：history -c</p>
+<p>执行历史命令：！历史命令编号</p>
+<h4 id="二、文件操作相关的命令"><a href="#二、文件操作相关的命令" class="headerlink" title="二、文件操作相关的命令"></a>二、文件操作相关的命令</h4><p>pwd （print working directory） 显示当前工作目录</p>
+<p>cd 切换目录（绝对路径/相对路径）</p>
+<p>ls 列出文件夹下的内容</p>
+<p>   -l（长格式查看）-a（查看所有点开头的隐藏文件和文件夹）-R递归式查看</p>
+<p>mkdir 创建文件夹 </p>
+<p>  -p 创建符文件夹（如果不存在）</p>
+<p>rmdir 删除空文件夹</p>
+<p>touch 创建空文件或者修改文件的最后访问时间</p>
+<p>rm  删除文件</p>
+<p>  -f （强制删除） -r （递归式删除）</p>
+<p>cat 查看文件的内容 -n（显示行号）</p>
+<p>head / tail —&gt; 查看文件的开头和结尾<br>    -行数<br>more / less —&gt; 逐页逐行查看文件内容<br>wc —&gt; word count —&gt; 统计行数、单词数、字节数<br>iconv —&gt; 转换文件编码<br>    ~ Unicode —&gt; 字符集（万国码）—&gt; 其中一种实现方式叫utf-8<br>    -f：原始编码<br>    -t：目标编码</p>
+<p>mv —&gt; move —&gt; 移动文件 —&gt; 剪切<br>cp —&gt; copy —&gt; 拷贝文件<br>    -r：（recursive）递归式拷贝（拷贝文件夹）</p>
+<p>file —&gt; 查看文件属性</p>
+<p>压缩文件：<br>gzip / gunzip<br>xz -z / xz -d</p>
+<p>WinRAR —&gt; 归档/解归档<br>WinZip —&gt; 压缩/解压缩</p>
+<p>归档：把多个文件合并到一个文件中<br>解归档：把一个文件拆成多个文件<br>tar -cf html.tar *.html —&gt; create<br>tar -xf html.tar —&gt; extract</p>
+<p>安全文件拷贝（通过网络跨主机拷贝文件）<br>scp root@一台服务器的IP地址:/路径/文件名 root@另一台服务器的IP地址:/路径/文件名</p>
+<p>常用快捷键：<br>Tab：自动补全命令或路径<br>Ctrl+u：删除整行<br>Ctrl+w：删除光标前面的单词<br>Ctrl+a：光标回到行首<br>Ctrl+e：光标去到行尾</p>
+<p>重定向：<br>    ~ 输出重定向：&gt;<br>        echo apple &gt; fruits.txt<br>    ~ 追加输入重定向：&gt;&gt;<br>        echo apple &gt;&gt; fruits.txt<br>        echo banana &gt;&gt; fruits.txt<br>    ~ 错误输出重定向：2&gt;<br>    ~ 输入重定向：&lt;</p>
+<p>管道：| 操作系统提供的进程间通信的I/O通道<br>    ~ 前一个命令（进程）的输出作为下一个命令（进程）的输入</p>
+<p>sort fruits.txt | uniq -c</p>
+<h5 id="Web服务器：Apache-Nginx"><a href="#Web服务器：Apache-Nginx" class="headerlink" title="Web服务器：Apache / Nginx"></a>Web服务器：Apache / Nginx</h5><p>​    ~ 启动Nginx服务（Web服务） —&gt; Web服务器<br>​        systemctl start nginx (CentOS 7.x)<br>​        service nginx start (CentOS 6.x)<br>​    ~ 停止Nginx服务<br>​        systemctl stop nginx<br>​    ~ 重启<br>​        systemctl restart nginx<br>​    ~ 查看运行状态<br>​        systemctl status nginx<br>​    ~ 设置/禁用开机自启<br>​        systemctl enable nginx<br>​        systemctl disable nginx</p>
+<p>查看网络状态 - netstat -ntlp<br>    -n：地址和端口的数值<br>    -t：tcp<br>    -l：listen - 正在监听<br>    -p：process - 显示进程信息</p>
+<h4 id="三、CentOS系统上如何安装软件和服务"><a href="#三、CentOS系统上如何安装软件和服务" class="headerlink" title="三、CentOS系统上如何安装软件和服务"></a>三、CentOS系统上如何安装软件和服务</h4><ol>
+<li><h6 id="使用包管理工具安装软件"><a href="#使用包管理工具安装软件" class="headerlink" title="使用包管理工具安装软件"></a>使用包管理工具安装软件</h6><p> ~ yum –&gt; Yellow dog Updater Modified</p>
+<pre><code>搜索：yum search nginx
+安装：yum install -y nginx
+卸载：yum erase -y nginx / yum remove -y nginx
+更新：yum update nginx / yum update
+查看信息：yum info nginx
+查看安装的所有软件包：yum list installed | grep nginx</code></pre><p>~ rpm0</p>
+</li>
+<li><h6 id="源代码构建安装-—-gt-configure-Makefile"><a href="#源代码构建安装-—-gt-configure-Makefile" class="headerlink" title="源代码构建安装 —&gt; configure / Makefile"></a>源代码构建安装 —&gt; configure / Makefile</h6><p> 例子1：源代码构建安装Git<br> ~ 下载源代码：<br> wget <a href="https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.27.0.tar.xz" target="_blank" rel="noopener">https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.27.0.tar.xz</a><br> ~ 解压缩和解归档<br> xz -d git-2.27.0.tar.xz —&gt; git-2.27.0.tar<br> tar -xf git-2.27.0.tar —&gt;  git-2.27.0（文件夹）<br> ~ 安装前的准备工作<br> cd git-2.27.0<br> yum install -y libcurl libcurl-devel zlib zlib-devel<br> yum install -y gcc<br> ./configure –prefix=/usr/local<br> ~ 编译源代码生成可执行程序<br> make &amp;&amp; make install<br> ~ 通过下面的命令检查是否安装成功<br> git –version<br>whereis git</p>
+<p> 例子2：源代码构建安装Python 3<br> ~ 补充安装Python 3需要用到的依赖项<br> yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libdb4-devel libpcap-devel xz-devel libffi-devel<br> ~ 下载和检查Python3的源代码<br> wget <a href="https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tar.xz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tar.xz</a><br> md5sum Python-3.7.8.tar.xz<br> ~ 解压缩和解归档<br> xz -d Python-3.7.8.tar.xz<br> tar -xf Python-3.7.8.tar<br> ~ 安装前的准备工作<br> cd Python-3.7.8<br> ./configure –prefix=/usr/local/python37 –enable-optimizations<br> ~ 构建和安装<br> make &amp;&amp; make install<br> ~ 配置PATH环境变量<br> vim /etc/bashrc —&gt; 系统环境变量<br> vim ~/.bash_profile —&gt; 用户环境变量<br> —&gt; Go<br> export PATH=$PATH:/usr/local/python37/bin<br> —&gt; Esc ZZ<br> ~ 检查是否安装成功<br> 退出登录，重新登录，激活PATH环境变量<br> python3 –version<br>pip3 –version</p>
+<p> 3、直接下载可执行二进制程序</p>
+</li>
+</ol>
+<p>MD5 —&gt; 哈希函数/哈希算法 —&gt; 给对象生成签名（指纹）</p>
+<h4 id="四、Vim的使用"><a href="#四、Vim的使用" class="headerlink" title="四、Vim的使用"></a>四、Vim的使用</h4><p>工作模式：<br>    ~ 命令模式<br>        移动光标：<br>            ~ G：最后一行<br>            ~ gg：第一行<br>            ~ 数字G：指定行<br>            ~ 左下上右：h j k l<br>            ~ 0：行首<br>            ~ $：行尾<br>            ~ w：下一个单词<br>            ~ 下一页/上一页：Ctrl+f / Ctrl+b<br>            ~ 下一行/上一行：Ctrl+e / Ctrl+y<br>        编辑内容：<br>            ~ 删除行：dd / 100dd<br>            ~ 删除到行首/行尾：d0 / d$<br>            ~ 删除一个单词：dw<br>            ~ 拷贝行：yy / 10yy<br>            ~ 粘贴：p<br>            ~ 撤销：u<br>            ~ 恢复：Ctrl+r<br>        保存退出<br>            ~ ZZ<br>        进入编辑模式：<br>            i / I / a / A / o / O<br>        进入末行模式：<br>            : / ?<br>    ~ 编辑模式（插入模式）<br>        回到命令模式：Esc<br>    ~ 末行模式（底线命令模式）<br>        set nu / set nonu<br>        set ts=4<br>        set autoindent / set noautoindent<br>        set expandtab<br>        set ruler / set noruler<br>        set hls / set nohls<br>        w / q / wq / q! / qa</p>
+<p>vim多窗口操作<br>:sp —&gt; 水平拆分窗口<br>:vs —&gt; 垂直拆分窗口<br>:ls —&gt; 查看所有文件<br>:b 编号 —&gt; 切换文件<br>double Ctrl+w —&gt; 切换光标到下一个窗口<br>:qa —&gt; 退出所有窗口</p>
+<p>把Python程序改成可执行脚本</p>
+<p>#!/usr/local/python37/bin/python3</p>
+<p>chmod u+x,g+x,o+x 文件名 —&gt; 添加执行权限<br>chmod 755 文件名 —&gt; 添加执行权限</p>
+<p>设置PATH环境变量<br>export PATH=$PATH:/root/code</p>
+<p>创建符号链接（软链接） —&gt; 快捷方式<br>ln -s /usr/local/python37/bin/python3 /usr/bin/python3</p>
+<p>#!/usr/bin/python3</p>
+<p>别名和取消别名</p>
+<p>alias ‘lla=ls -la’<br>alias ‘rmf=rm -f’</p>
+<p>unalias lla<br>unalias rmf</p>
+<p>用户管理<br>    ~ 创建用户<br>    useradd hellokitty</p>
+<p>   ~ 修改密码<br>    passwd hellokitty</p>
+<p>  ~删除用户</p>
+<p>  userdel -r helloki</p>
+<p>~ 设置密码过期<br>    chage -M 30 hellokitty —&gt; 30天后密码过期<br>    chage -d 0 hellokitty  —&gt; 下次登录修改密码</p>
+<pre><code>~ 改变文件所有者
+chown hellokitty filename
+chown -R hellokitty dirname
+
+~ 切换用户
+su - switch user
+
+~ 以超级管理员的身份执行命令
+sudo - super user do
+前提条件：当前用户必须在sudoers清单中
+可以使用visudo编辑sudoers清单添加指定的用户
+
+~ 其他命令：mesg write wall</code></pre><h4 id="五、使用linux安装MySQL"><a href="#五、使用linux安装MySQL" class="headerlink" title="五、使用linux安装MySQL"></a><strong>五、使用linux安装MySQL</strong></h4><p>MariaDB —&gt; MySQL的开源免费分支<br>yum install -y mariadb mariadb-server</p>
+<p>安装MySQL：<br>    ~ 删除和mariadb相关的包<br>    yum list installed | grep mariadb | awk ‘{print $1}’ | xargs yum erase -y </p>
+<pre><code>~ 安装common包
+rpm -ivh mysql-community-common-5.7.31-1.el7.x86_64.rpm
+
+~ 安装libs和libs-compat包
+rpm -ivh mysql-community-libs-5.7.31-1.el7.x86_64.rpm
+rpm -ivh mysql-community-libs-compat-5.7.31-1.el7.x86_64.rpm
+
+~ 安装devel包（给开发者使用的）
+rpm -ivh mysql-community-devel-5.7.31-1.el7.x86_64.rpm
+
+~ 安装client包（客户端工具）
+rpm -ivh mysql-community-client-5.7.31-1.el7.x86_64.rpm
+
+~ 安装server包（MySQL服务器程序）
+yum install -y libaio numactl-libs
+rpm -ivh mysql-community-server-5.7.31-1.el7.x86_64.rpm
+
+MySQL的数据文件 /var/lib/mysql
+MySQL的日志文件 /var/log/mysqld.log</code></pre><p>安装软件：rpm -ivh<br>移除软件：rpm -e<br>查询软件：rpm -qa</p>
+<p>启动MySQL<br>    systemctl start mysqld</p>
+<p>停止MySQL<br>    systemctl stop mysqld</p>
+<p>重启MySQL<br>    systemctl restart mysqld</p>
+<p>查看MySQL状态<br>    systemctl status mysqld</p>
+<p>连接MySQL数据库<br>    mysql -u root -p</p>
+<p>修改数据库密码<br>    sql&gt; alter user ‘root’@’localhost’ identified by ‘Luohao.618’;</p>
+<p>如果暂时需要使用弱口令密码，可以做下面的设置PATH环境变量<br>    sql&gt; set global validate_password_policy=0;<br>    sql&gt; set global validate_password_length=6;</p>
+<p>安装、配置和启动MySQL：<br>    - rpm包管理工具安装<br>        - vim /etc/my.cnf —&gt; MySQL配置文件<br>        - systemctl start mysqld<br>        - systemctl stop mysqld<br>        - systemctl restart mysqld<br>        - systemctl status mysqld<br>        - netstat -ntlp</p>
+<h4 id="六、Git的使用"><a href="#六、Git的使用" class="headerlink" title="六、Git的使用"></a><strong>六、Git的使用</strong></h4><ol>
+<li><p>创建本地仓库<br> git init</p>
+</li>
+<li><p>把工作区的文件放到暂存区<br> git add filename<br> git add .</p>
+</li>
+<li><p>把缓存区的文件提交到本地仓库<br> 第一次提交代码需要设置用户名和邮箱<br> git config –global user.name “abc”<br> git config –global user.email “<a href="mailto:abc@126.com">abc@126.com</a>“</p>
+<p> git commit -m ‘…’</p>
+</li>
+<li><p>查看提交日志（历史）<br> git log<br> git reflog</p>
+</li>
+<li><p>用暂存区的内容恢复工作区<br> git restore filename</p>
+</li>
+<li><p>版本回退<br> git reset –hard ID</p>
+</li>
+<li><p>添加远端仓库<br> git remote add origin URL<br> git remote remove origin<br> git remote -v</p>
+</li>
+<li><p>同步代码<br> ~ 上推（把自己的工作成功同步到服务器）<br> git push -u origin master<br> git push<br> ~ 下拉<br> git pull</p>
+</li>
+<li><p>查看冲突<br> git diff</p>
+</li>
+<li><p>配置免密访问<br>ssh-keygen -t rsa -b 2048 -C “<a href="mailto:abc@126.com">abc@126.com</a>“<br>—&gt; ~/.ssh/ —&gt; id_rsa / id_rsa.pub</p>
+<p>cat id_rsa.pub —&gt; 把公钥部署到服务器上</p>
+<p>git remote remove origin<br>git remote add origin SSH地址<br>git remote -v</p>
+<p>git push -u origin master<br>数据库 - 数据的仓库（集散地）—&gt; 数据持久化<br>~ 存储数据<br>~ 管理数据 —&gt; 可以方便的检索我们需要的数据</p>
+</li>
+</ol>
+<h4 id="七、Redis的安装"><a href="#七、Redis的安装" class="headerlink" title="七、Redis的安装"></a><strong>七、Redis的安装</strong></h4><p>修改Redis配置文件<br>cp redis-5.0.8/redis.conf ~/  —&gt; 拷贝配置文件到用户主目录</p>
+<p>vim redis.conf  –&gt; 修改配置文件<br>        ~bind 本机私有ip地址（网卡上的ip地址） ：？ifconfig rth0（查看本机ip地址）<br>        ~protected-mode yes<br>        ~port 端口号 （ 避开著名端口）<br>        ~requirepass 访问Redis服务器的口令</p>
+<p>redis-server redis.conf &gt; redis.log 2&gt; redis-error.log &amp; （启动Redis服务器）</p>
+<p>netstat -ntlp （查看所有服务器运行状态和端口）</p>
+<p>redis-cli -h ip地址 -p 端口 （启动Redis交互环境）</p>
+<p>jobs 可以看后台工作</p>
+<p>auth 访问口令</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.flyoung.icu/2020/08/01/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdbejgvh0001ccr1hgwd0898" class="article-share-link">Share</a>
       
       
     </footer>
@@ -135,7 +491,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
     </div>
   </div>
 
@@ -148,7 +504,15 @@
       <ul>
         
           <li>
-            <a href="/2020/07/24/hello-world/">Hello World</a>
+            <a href="/2020/08/01/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">MySQL数据库的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/01/Redis%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Redis的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/01/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Linux操作系统的基本使用</a>
           </li>
         
       </ul>
